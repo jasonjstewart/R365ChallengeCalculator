@@ -6,6 +6,8 @@ namespace Challenge_Calculator
     {
         static void Main(string[] args)
         {
+            //eliminate all spaces in the string, just in case someone added spaces on accident or something along those lines
+            //just comment out the unneeded code and probably dont use so many branches
             String input;
             String[] numbers;
             int sum=0;
