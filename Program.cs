@@ -6,7 +6,7 @@ namespace Challenge_Calculator
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Console.WriteLine("R365 is the best!");
         }
     }
 }
