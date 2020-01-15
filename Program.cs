@@ -26,14 +26,15 @@ namespace Challenge_Calculator
 
             foreach (var num in numbers){
                 i = Convert.ToInt32(int.TryParse(num, out i) ? num : "0");
-                if ((i >= 0))
-                {
-                    sum = Convert.ToInt32(i)+sum;
-                }
-                else
+                if (i <= 0)
                 {
                     throw new System.ArgumentException("Incorrect negative number entered.", "original");
                 }
+                if (i > 1000)
+                {
+                    i = 0;
+                }
+                sum = Convert.ToInt32(i) + sum;
             }
             Console.WriteLine(sum);
         }
