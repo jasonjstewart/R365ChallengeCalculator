@@ -24,13 +24,16 @@ namespace Challenge_Calculator
             //    throw new System.ArgumentException("Too many numbers specified", "original");
             //}
 
-            string test = "PersonA\nPersonB\r\nPersonC\n";
-            string[] result = test.Split(new string[] { "\n", "\r\n" }, StringSplitOptions.RemoveEmptyEntries);
-            foreach (string s in result)
-                Console.WriteLine(s);
-
-            foreach (var num in numbers){                
-                sum = Convert.ToInt32(int.TryParse(num, out i) ? num : "0") + sum;
+            foreach (var num in numbers){
+                i = Convert.ToInt32(int.TryParse(num, out i) ? num : "0");
+                if ((i >= 0))
+                {
+                    sum = Convert.ToInt32(i)+sum;
+                }
+                else
+                {
+                    throw new System.ArgumentException("Incorrect negative number entered.", "original");
+                }
             }
             Console.WriteLine(sum);
         }
