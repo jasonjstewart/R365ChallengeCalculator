@@ -1,4 +1,9 @@
-﻿using System;
+﻿/* Author: Jason Stewart
+ * Description: found at https://github.com/restaurant365/challenge-calculator
+ * this was for a project given to me by R365 before I started my internship this summer
+ */
+
+using System;
 
 namespace Challenge_Calculator
 {
@@ -15,11 +20,14 @@ namespace Challenge_Calculator
             input = Console.ReadLine();
             //Commented out the next line from Requirement 6
             //string output = input.Substring(input.IndexOf('/') + 2,1);
-            string output = input.Substring(input.IndexOf('[') + 1, input.IndexOf(']')- (input.IndexOf('[')+1));
+            string output = input.Substring(input.IndexOf("//") + 3, input.IndexOf(@"\n") - (input.IndexOf("//")+4));
+            String[] delimiters = output.Split("][");
             input = input.Substring(input.IndexOf("//")+3);
             input =input.Replace(@"\n",",");
-            input=input.Replace(" ", "");
-            input = input.Replace(output, ",");
+            foreach (var d in delimiters)
+            {
+                input = input.Replace(d, ",");
+            }
             numbers =input.Split(',');
             //Took this out for Requirement 2
             //if (numbers.Length>2)
