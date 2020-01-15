@@ -13,10 +13,9 @@ namespace Challenge_Calculator
 
             Console.WriteLine("Please enter numbers separated by commas.");
             input = Console.ReadLine();
-            ////{delimiter}\n{numbers}
-            string output = input.Substring(input.IndexOf('/') + 2,1);
-            //string output = input.Substring(input.IndexOf('/') + 3, input.IndexOf(']')- (input.IndexOf('\n')+3));
-            Console.WriteLine(output);
+            //Commented out the next line from Requirement 6
+            //string output = input.Substring(input.IndexOf('/') + 2,1);
+            string output = input.Substring(input.IndexOf('[') + 1, input.IndexOf(']')- (input.IndexOf('[')+1));
             input = input.Substring(input.IndexOf("//")+3);
             input =input.Replace(@"\n",",");
             input=input.Replace(" ", "");
@@ -26,7 +25,7 @@ namespace Challenge_Calculator
             //if (numbers.Length>2)
             //{
             //    throw new System.ArgumentException("Too many numbers specified", "original");
-            //}
+            //
 
             foreach (var num in numbers){
                 i = Convert.ToInt32(int.TryParse(num, out i) ? num : "0");
