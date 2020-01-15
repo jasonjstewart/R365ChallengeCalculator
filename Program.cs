@@ -14,12 +14,21 @@ namespace Challenge_Calculator
             int i = 0;
             Console.WriteLine("Please enter numbers separated by commas.");
             input = Console.ReadLine();
-            numbers=input.Split(',');
+            input=input.Replace(@"\n",",");
+            input=input.Replace(" ", "");
+            //numbers = input.Split(new Char[] { ',', '\n' });
+            numbers =input.Split(',');
             //Took this out for Requirement 2
             //if (numbers.Length>2)
             //{
             //    throw new System.ArgumentException("Too many numbers specified", "original");
             //}
+
+            string test = "PersonA\nPersonB\r\nPersonC\n";
+            string[] result = test.Split(new string[] { "\n", "\r\n" }, StringSplitOptions.RemoveEmptyEntries);
+            foreach (string s in result)
+                Console.WriteLine(s);
+
             foreach (var num in numbers){                
                 sum = Convert.ToInt32(int.TryParse(num, out i) ? num : "0") + sum;
             }
