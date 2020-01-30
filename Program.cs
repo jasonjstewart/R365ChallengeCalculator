@@ -9,7 +9,7 @@ using System;
 
 namespace Challenge_Calculator
 {
-    class Program
+    public class Program
     {
 
         public static string Calculator(string input)
@@ -21,9 +21,15 @@ namespace Challenge_Calculator
 
             //Commented out the next line from Requirement 6
             //string output = input.Substring(input.IndexOf('/') + 2,1);
+            string a = input.Substring(1, input.Length - 2);
             string h = input.Substring(2, 1);
             if (input.Substring(2, 1) == "[")
             {
+                int b = input.IndexOf("//") + 3;
+                int f = input.IndexOf(@"\n");
+                int e = (input.IndexOf("//") + 4);
+                int c = input.IndexOf(@"\n") - (input.IndexOf("//") + 4);
+
                 string output = input.Substring(input.IndexOf("//") + 3, input.IndexOf(@"\n") - (input.IndexOf("//") + 4));
                 String[] delimiters = output.Split("][");
                 input = input.Substring(input.IndexOf(@"\n") + 2);
@@ -31,6 +37,10 @@ namespace Challenge_Calculator
                 {
                     input = input.Replace(d, ",");
                 }
+            }
+            else if (input.Substring(1, 1) == "/")
+            {
+                input = input.Substring(input.IndexOf(@"\n") + 2);
             }
             //input = input.Substring(input.IndexOf("//")+3);
             input = input.Replace(@"\n", ",");
