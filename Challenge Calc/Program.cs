@@ -75,9 +75,8 @@ namespace Challenge_Calculator
         {
             bool cont = true;
             while (cont == true)
-            {
-                //*********************************NEEDS WORK not showing \n****************************************
-                Console.WriteLine("Please enter numbers separated by commas, or "+ '\n' + " or create own delimiter by using // \n, puting demlimiter in the middle.");
+            { 
+                Console.WriteLine("Please enter numbers separated by commas, or \\n or create own delimiter by using // \\n,\n putting demlimiter in the middle bracketed by [].");
                 string input = Console.ReadLine();
                 Calculator(input);
             }
